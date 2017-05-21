@@ -1,0 +1,60 @@
+﻿<Window x:Class="WPFekzam.Admin.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFekzam"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="467" Width="908.6" WindowStartupLocation="CenterScreen" Background="White" WindowStyle="None" Foreground="White">
+    <Grid Background="White" Height="465" Margin="-3,0,2,-6">
+        <DockPanel Height="211" LastChildFill="False" VerticalAlignment="Top" HorizontalAlignment="Center" Width="878" Margin="0,1,0.2,0" >
+            <Button Content="Прием на работу" Height="197" VerticalAlignment="Top" Width="350" FontSize="24" FontFamily="Arial Black" Click="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" Foreground="#FF2196F3" BorderBrush="White">
+                <Button.Background>
+                    <ImageBrush ImageSource="/WPFekzam;component/Resurses/Rabota.jpg"/>
+                </Button.Background>
+            </Button>
+            <Button Height="Auto" Content="Сотрудники" Width="202" FontSize="24" FontFamily="Arial Black" Click="Button_Click_1" Panel.ZIndex="-2" Background="#FF2196F3" Foreground="White" Margin="0,0,0,14"/>
+            <Button Content="Увольнение" Height="197" Width="326" FontSize="24" FontFamily="Segoe UI Black" Foreground="#FF2196F3" Click="Button_Click_2" VerticalAlignment="Top" VerticalContentAlignment="Top" BorderBrush="#FFFFF9F9">
+                <Button.Background>
+                    <ImageBrush ImageSource="/WPFekzam;component/Resurses/Dismissed.jpg"/>
+                </Button.Background>
+            </Button>
+
+        </DockPanel>
+
+        <DockPanel Height="166" LastChildFill="False" VerticalAlignment="Top" HorizontalAlignment="Center" Width="878" Margin="3,200,4,0" >
+            <Button Height="Auto" Content="Товары" Width="350" FontSize="24" FontFamily="Arial Black"  Panel.ZIndex="-2" Foreground="White" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" BorderBrush="White" Click="Button_Click_3">
+                <Button.Background>
+                    <ImageBrush ImageSource="/WPFekzam;component/Resurses/product.jpg"/>
+                </Button.Background>
+            </Button>
+            <Button Height="Auto"   Width="529" FontSize="24"    FontFamily="Arial Black"  Foreground="#FF787874" Background="White" Click="Button_Click_4"  >
+                <StackPanel Width="171" Margin="-28,0,0,0" >
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Height="39" Width="150" RenderTransformOrigin="0.5,0.5" Margin="17,25,4,0" >
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleY="-0.562"/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="-0.657"/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>Категории</TextBlock>
+                </StackPanel>
+            </Button>
+
+        </DockPanel>
+        <materialDesign:PackIcon Kind="Backspace"  Height="56" Width="34" MouseDown="PackIcon_MouseDown" RenderTransformOrigin="6.508,2.884" Margin="0,-280,5,0" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Foreground="#FFF73C3C" Background="White" >
+            <materialDesign:PackIcon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </materialDesign:PackIcon.RenderTransform>
+        </materialDesign:PackIcon>
+
+
+    </Grid>
+</Window>
