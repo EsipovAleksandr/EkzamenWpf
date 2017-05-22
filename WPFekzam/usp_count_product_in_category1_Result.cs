@@ -11,7 +11,7 @@ namespace WPFekzam
 {
     using System;
     
-    public partial class usp_count_product_in_category_Result
+    public partial class usp_count_product_in_category1_Result
     {
         public string Name { get; set; }
         public int Product_rest { get; set; }

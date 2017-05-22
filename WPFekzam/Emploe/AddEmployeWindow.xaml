@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450.536" Width="1200.393" WindowStartupLocation="CenterScreen" Background="White" WindowStyle="None">
+        Title="AdminWindow" Height="458.536" Width="1200.393" WindowStartupLocation="CenterScreen" Background="White" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
@@ -15,6 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  />
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -33,8 +34,8 @@
         <TextBox x:Name="tbfamile" Grid.ColumnSpan="1"  Grid.Row="2" Margin="132,10,10,26" RenderTransformOrigin="0.451,0.526"/>
         <Label Content="Отчество"   Grid.Row="3"  FontSize="24" RenderTransformOrigin="-0.84,0.608" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
         <TextBox x:Name="tbochesvo" Grid.ColumnSpan="1"  Grid.Row="3" Margin="132,10,10,26" RenderTransformOrigin="0.451,0.526"/>
-        <Label  Content="Должность"   Grid.Row="4"  FontSize="24" RenderTransformOrigin="-0.84,0.608" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="tbPosition" Grid.ColumnSpan="1"  Grid.Row="4" Margin="132,10,10,26" RenderTransformOrigin="0.451,0.526"/>
+        <Label  Content="Должность"   Grid.Column="2" Grid.Row="1"  FontSize="24" RenderTransformOrigin="-0.84,0.608" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbPosition"  Grid.Row="1" Margin="239,10,10,26" RenderTransformOrigin="0.451,0.526" Grid.Column="2"/>
         <Label Content="Начало работы"  Grid.Column="1"  Grid.Row="1"  FontSize="24" RenderTransformOrigin="-0.84,0.608" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Bottom" VerticalAlignment="Center"/>
         <DatePicker x:Name="DateStart"   Grid.Column="1" Grid.Row="2" FontSize="18" Margin="0,10,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="295" Height="138" HorizontalAlignment="Right" Grid.RowSpan="2"/>
         <Label Content="Дата рождения"  Grid.Column="2"  Grid.Row="2"  FontSize="24" RenderTransformOrigin="-0.84,0.608" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" VerticalAlignment="Center"/>
@@ -42,9 +43,13 @@
         <Label Grid.Column="2" Grid.Row="3"  Content="Паспортные данные" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
         <TextBox x:Name="tbPassportData"  Grid.Column="2"  Grid.Row="3" Margin="239,10,10,26" RenderTransformOrigin="0.451,0.526"/>
         <ProgressBar x:Name="Progres" Grid.Column="1" Grid.Row="4"  Height="14" BorderBrush="#FFFBFBFB" Background="#FFF73C3C"   IsIndeterminate="True" Foreground="#FF07B0FF" />
-        <Label Grid.Column="2" Grid.Row="1"  Content="Номер телефона" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="tbPhone"  Text="+3" Grid.Column="2"  Grid.Row="1" Margin="239,10,10,26" RenderTransformOrigin="0.451,0.526" FontSize="20"/>
         <Label  Grid.Column="2" Grid.Row="4"  Content="Номер телефона" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox  x:Name="tbPhone2" Grid.Column="2"  Grid.Row="4" Margin="239,10,0,0" Height="38" VerticalAlignment="Top" FontSize="20" Text="+3"/>
+        <TextBox  x:Name="tbPhone" Grid.Column="2"  Grid.Row="4" Margin="239,10,0,0" Height="38" VerticalAlignment="Top" FontSize="20" Text="+3"/>
+        <Label  Grid.Column="2" Grid.Row="5"  Content="Номер телефона" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox  x:Name="tbPhone2" Grid.Column="2"  Grid.Row="5" Margin="239,10,0,0" Height="38" VerticalAlignment="Top" FontSize="20" Text="+3"/>
+        <Label  Grid.Column="0" Grid.Row="4"  Content="Логин" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox   x:Name="tbLogin" Grid.Column="0"  Grid.Row="4" Margin="132,10,0,0" Height="38" VerticalAlignment="Top" FontSize="20" />
+        <Label  Grid.Column="0" Grid.Row="5"  Content="Пароль" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox   x:Name="tbPassword" Grid.Column="0"  Grid.Row="5" Margin="132,10,0,0" Height="38" VerticalAlignment="Top" FontSize="20" />
     </Grid>
 </Window>

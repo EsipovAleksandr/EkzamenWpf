@@ -24,7 +24,7 @@ namespace WPFekzam.Product
             InitializeComponent();
             _renewControlls();
         }
-        private void _renewControlls()
+        public void _renewControlls()
         {
             using (ShopAuto db = new ShopAuto())
             {
@@ -42,10 +42,13 @@ namespace WPFekzam.Product
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-                Products Product = dataGriPriduct.SelectedItem as Products;
-                AddProductWindow w1 = new AddProductWindow() { DataContext = Product };
-                w1.Show();
+
+            //  Products Product = dataGriPriduct.SelectedItem as Products;
+            // { DataContext = Product };
+
+         
+            AddProductWindow ad1 = new AddProductWindow();           
+            ad1.Show();
             
         }
 

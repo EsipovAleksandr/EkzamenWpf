@@ -23,26 +23,32 @@ namespace WPFekzam.Product
         public AddProductWindow()
         {
             InitializeComponent();
-            //List<String> CategoreList = new List<string>();
-            //CategoreList.Add("Двигатель");
-            //CategoreList.Add("ВЫХЛОПНАЯ СИСТЕМА"); ;
-            //CategoreList.Add("ДЕТАЛИ ДЛЯ СЕРВИСА, ТО, УХОДА");
-            //CategoreList.Add("ДОПОЛНИТЕЛЬНЫЕ УДОБСТВА");
-            //CategoreList.Add("КОЛЁСА, КОМПЛЕКТУЮЩИ");
-            //CategoreList.Add("ПОДВЕСКА, АМОРТИЗАЦИ");
-            //CategoreList.Add("РУЛЕВОЕ УПРАВЛЕН");
-           
-            //foreach (var item in CategoreList)
+            ShowCategory();
+          //  ProductCatecoryAddWindow p1 = new ProductCatecoryAddWindow();
+            //foreach (var item in p1.Categore())
             //{
             //    ComboBoxCategory.Items.Add(item);
-            //}
-            
 
-             
+            //}
+
+
 
         }
+        public void ShowCategory()
+        {
+            using (ShopAuto db = new ShopAuto())
+            {
+                List<ProductCategorry> list = db.ProductCategorry.ToList();
+                foreach (var item in list)
+                {
+                   ComboBoxCategory.Items.Add(item.CategoryExtra);
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+                }
+
+            }
+        }
+
+            private void Button_Click(object sender, RoutedEventArgs e)
         {
 
             using (ShopAuto db = new ShopAuto())
@@ -65,7 +71,8 @@ namespace WPFekzam.Product
                     });
                     db.Products.Add(Prod);
                     db.SaveChanges();
-                    this.Hide();
+                               
+                    this.Close();
                 }
                 catch (Exception ex)
                 {

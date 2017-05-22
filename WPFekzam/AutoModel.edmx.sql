@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/17/2017 09:49:34
--- Generated from EDMX file: C:\Users\Есипов.Александр\Desktop\WPFekzam последняя версия\WPFekzam\AutoModel.edmx
+-- Date Created: 05/22/2017 22:45:52
+-- Generated from EDMX file: C:\Users\frost\Desktop\WPFekzam последняя версия 5\WPFekzam\AutoModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -40,8 +40,14 @@ GO
 IF OBJECT_ID(N'[dbo].[OrdersDetail]', 'U') IS NOT NULL
     DROP TABLE [dbo].[OrdersDetail];
 GO
+IF OBJECT_ID(N'[dbo].[ProductCategorry]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProductCategorry];
+GO
 IF OBJECT_ID(N'[dbo].[Products]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Products];
+GO
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
 GO
 
 -- --------------------------------------------------
@@ -95,6 +101,13 @@ CREATE TABLE [dbo].[OrdersDetail] (
 );
 GO
 
+-- Creating table 'ProductCategorry'
+CREATE TABLE [dbo].[ProductCategorry] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [CategoryExtra] nvarchar(50)  NOT NULL
+);
+GO
+
 -- Creating table 'Products'
 CREATE TABLE [dbo].[Products] (
     [Id] int IDENTITY(1,1) NOT NULL,
@@ -108,6 +121,14 @@ CREATE TABLE [dbo].[Products] (
     [Price_sale] decimal(19,4)  NOT NULL,
     [Color] nvarchar(20)  NULL,
     [Product_rest] int  NOT NULL
+);
+GO
+
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Login] nvarchar(500)  NULL,
+    [Password] nvarchar(50)  NOT NULL
 );
 GO
 
@@ -139,9 +160,21 @@ ADD CONSTRAINT [PK_OrdersDetail]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'ProductCategorry'
+ALTER TABLE [dbo].[ProductCategorry]
+ADD CONSTRAINT [PK_ProductCategorry]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- Creating primary key on [Id] in table 'Products'
 ALTER TABLE [dbo].[Products]
 ADD CONSTRAINT [PK_Products]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

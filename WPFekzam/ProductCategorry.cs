@@ -10,10 +10,11 @@
 namespace WPFekzam
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class usp_count_product_in_category_Result
+    public partial class ProductCategorry
     {
-        public string Name { get; set; }
-        public int Product_rest { get; set; }
+        public int Id { get; set; }
+        public string CategoryExtra { get; set; }
     }
 }

@@ -83,9 +83,7 @@
                         </ComboBoxItem>
                     </ComboBox>
 
-                    <ComboBox Name="ComboBoxCategory" Height="52" VerticalAlignment="Top" Margin="18,0,28,0">
-                      
-                    </ComboBox>
+                    <ComboBox Name="ComboBoxCategory" Height="52" VerticalAlignment="Center" Margin="18,0,28,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
                         <TextBox x:Name="tbArt" Grid.Column="3" Grid.Row="1" FontSize="20" Margin="0,-24,0,-21" />
                     </materialDesign:Card>
@@ -112,7 +110,7 @@
             </Grid>
 
             <StackPanel VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="52" Width="1152" >
-                <Button FontSize="22" Click="Button_Click" HorizontalAlignment="Center" Width="500" Height="40" Margin="482,0" Background="#FF49FD06" BorderBrush="White" >Добавить</Button>
+                <Button FontSize="22" Click="Button_Click" HorizontalAlignment="Center" Width="500" Height="40" Margin="482,0" Background="#FF27D400" BorderBrush="White" >Добавить</Button>
             </StackPanel>
         </Grid>
     </ScrollViewer>

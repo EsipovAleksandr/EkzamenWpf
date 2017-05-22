@@ -45,6 +45,14 @@ namespace WPFekzam.Emploe
                     });
                     db.Employee.Add(emp);
                     db.SaveChanges();
+                    Users us = (new Users()
+                    {
+                        Login = tbLogin.Text,
+                        Password = tbPassword.Text
+
+                    });
+                    db.Users.Add(us);
+                    db.SaveChanges();
                     this.Hide();
                 }
                 catch (Exception ex)

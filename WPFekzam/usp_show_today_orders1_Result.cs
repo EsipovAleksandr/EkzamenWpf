@@ -11,9 +11,17 @@ namespace WPFekzam
 {
     using System;
     
-    public partial class usp_count_product_in_category_Result
+    public partial class usp_show_today_orders1_Result
     {
-        public string Name { get; set; }
-        public int Product_rest { get; set; }
+        public int Id { get; set; }
+        public string Order_details { get; set; }
+        public string Order_status { get; set; }
+        public string Waybill_num { get; set; }
+        public decimal Sum_final { get; set; }
+        public decimal Sum_payed { get; set; }
+        public System.DateTime Order_date { get; set; }
+        public System.DateTime Date_send { get; set; }
+        public Nullable<System.DateTime> Date_arrive { get; set; }
+        public string Delivery { get; set; }
     }
 }

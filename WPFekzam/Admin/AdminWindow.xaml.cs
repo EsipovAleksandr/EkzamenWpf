@@ -62,6 +62,7 @@ namespace WPFekzam.Admin
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             ProductCatecoryAddWindow p1 = new ProductCatecoryAddWindow();
-            p1.Show();        }
+            p1.Show();
+        }
     }
 }

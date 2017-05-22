@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPFekzam"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Registratsiya" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="800">
+        Title="Registratsiya" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="840.764">
     <Grid  Background="#FFE8E8E8" >
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>

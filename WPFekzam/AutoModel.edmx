@@ -10,7 +10,9 @@
     <EntitySet Name="Employee" EntityType="ShopAutoModel.Store.Employee" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Orders" EntityType="ShopAutoModel.Store.Orders" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="OrdersDetail" EntityType="ShopAutoModel.Store.OrdersDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductCategorry" EntityType="ShopAutoModel.Store.ProductCategorry" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Products" EntityType="ShopAutoModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="ShopAutoModel.Store.Users" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK__OrdersDet__Order__15502E78" Association="ShopAutoModel.Store.FK__OrdersDet__Order__15502E78">
       <End Role="Orders" EntitySet="Orders" />
       <End Role="OrdersDetail" EntitySet="OrdersDetail" />
@@ -67,6 +69,13 @@
     <Property Name="Product_id" Type="int" Nullable="false" />
     <Property Name="Quantity" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="ProductCategorry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryExtra" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Products">
     <Key>
       <PropertyRef Name="Id" />
@@ -82,6 +91,14 @@
     <Property Name="Price_sale" Type="decimal" Nullable="false" Precision="19" Scale="4" />
     <Property Name="Color" Type="nvarchar" Nullable="true" MaxLength="20" />
     <Property Name="Product_rest" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <Association Name="FK__OrdersDet__Order__15502E78">
     <End Role="Orders" Type="ShopAutoModel.Store.Orders" Multiplicity="1">
@@ -165,6 +182,13 @@
           <NavigationProperty Name="Orders" Relationship="Self.FK__OrdersDet__Order__15502E78" FromRole="OrdersDetail" ToRole="Orders" />
           <NavigationProperty Name="Products" Relationship="Self.FK__OrdersDet__Produ__164452B1" FromRole="OrdersDetail" ToRole="Products" />
         </EntityType>
+        <EntityType Name="ProductCategorry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryExtra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="Id" />
@@ -215,6 +239,7 @@
           <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Orders" EntityType="Self.Orders" />
           <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" />
+          <EntitySet Name="ProductCategorry" EntityType="Self.ProductCategorry" />
           <EntitySet Name="Products" EntityType="Self.Products" />
           <AssociationSet Name="FK__OrdersDet__Order__15502E78" Association="Self.FK__OrdersDet__Order__15502E78">
             <End Role="Orders" EntitySet="Orders" />
@@ -334,12 +359,147 @@
             <Parameter Name="product_rest" Mode="In" Type="Int32" />
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Users" EntityType="ShopAutoModel.Users" />
+          <FunctionImport Name="usp_add_customers1">
+            <Parameter Name="Fio" Mode="In" Type="String" />
+            <Parameter Name="Adress" Mode="In" Type="String" />
+            <Parameter Name="phone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_add_employee1">
+            <Parameter Name="fio" Mode="In" Type="String" />
+            <Parameter Name="post" Mode="In" Type="String" />
+            <Parameter Name="date_start" Mode="In" Type="DateTime" />
+            <Parameter Name="date_end" Mode="In" Type="DateTime" />
+            <Parameter Name="birthday" Mode="In" Type="DateTime" />
+            <Parameter Name="pasport_data" Mode="In" Type="String" />
+            <Parameter Name="phone1" Mode="In" Type="String" />
+            <Parameter Name="phone2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_add_orders1">
+            <Parameter Name="Order_details" Mode="In" Type="String" />
+            <Parameter Name="Order_status" Mode="In" Type="String" />
+            <Parameter Name="Waybill_num" Mode="In" Type="String" />
+            <Parameter Name="Sum_final" Mode="In" Type="Decimal" />
+            <Parameter Name="Sum_payed" Mode="In" Type="Decimal" />
+            <Parameter Name="Order_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Date_send" Mode="In" Type="DateTime" />
+            <Parameter Name="Date_arrive" Mode="In" Type="DateTime" />
+            <Parameter Name="delivery" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_add_orders_details1">
+            <Parameter Name="order_id" Mode="In" Type="Int32" />
+            <Parameter Name="product_id" Mode="In" Type="Int32" />
+            <Parameter Name="quantity" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_add_products1">
+            <Parameter Name="brand" Mode="In" Type="String" />
+            <Parameter Name="category" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="art" Mode="In" Type="String" />
+            <Parameter Name="catalogue_num" Mode="In" Type="String" />
+            <Parameter Name="manufacturer" Mode="In" Type="String" />
+            <Parameter Name="price_first" Mode="In" Type="Decimal" />
+            <Parameter Name="price_sale" Mode="In" Type="Decimal" />
+            <Parameter Name="color" Mode="In" Type="String" />
+            <Parameter Name="product_rest" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_count_product_in_category1" ReturnType="Collection(ShopAutoModel.usp_count_product_in_category1_Result)">
+          <Parameter Name="category" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_delete_customers1">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_delete_employee1">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_delete_orders1">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_delete_orders_details1">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_delete_products1">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_show_today_orders1" ReturnType="Collection(ShopAutoModel.usp_show_today_orders1_Result)" />
+          <FunctionImport Name="usp_update_customers1">
+            <Parameter Name="Fio" Mode="In" Type="String" />
+            <Parameter Name="Adress" Mode="In" Type="String" />
+            <Parameter Name="phone" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_update_employee1">
+            <Parameter Name="fio" Mode="In" Type="String" />
+            <Parameter Name="post" Mode="In" Type="String" />
+            <Parameter Name="date_start" Mode="In" Type="DateTime" />
+            <Parameter Name="date_end" Mode="In" Type="DateTime" />
+            <Parameter Name="birthday" Mode="In" Type="DateTime" />
+            <Parameter Name="pasport_data" Mode="In" Type="String" />
+            <Parameter Name="phone1" Mode="In" Type="String" />
+            <Parameter Name="phone2" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_update_orders1">
+            <Parameter Name="Order_details" Mode="In" Type="String" />
+            <Parameter Name="Order_status" Mode="In" Type="String" />
+            <Parameter Name="Waybill_num" Mode="In" Type="String" />
+            <Parameter Name="Sum_final" Mode="In" Type="Decimal" />
+            <Parameter Name="Sum_payed" Mode="In" Type="Decimal" />
+            <Parameter Name="Order_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Date_send" Mode="In" Type="DateTime" />
+            <Parameter Name="Date_arrive" Mode="In" Type="DateTime" />
+            <Parameter Name="delivery" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_update_orders_details1">
+            <Parameter Name="order_id" Mode="In" Type="Int32" />
+            <Parameter Name="product_id" Mode="In" Type="Int32" />
+            <Parameter Name="quantity" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_update_products1">
+            <Parameter Name="brand" Mode="In" Type="String" />
+            <Parameter Name="category" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="art" Mode="In" Type="String" />
+            <Parameter Name="catalogue_num" Mode="In" Type="String" />
+            <Parameter Name="manufacturer" Mode="In" Type="String" />
+            <Parameter Name="price_first" Mode="In" Type="Decimal" />
+            <Parameter Name="price_sale" Mode="In" Type="Decimal" />
+            <Parameter Name="color" Mode="In" Type="String" />
+            <Parameter Name="product_rest" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_count_product_in_category_Result">
           <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="Product_rest" Nullable="false" />
         </ComplexType>
         <ComplexType Name="usp_show_today_orders_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Order_details" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Order_status" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Waybill_num" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Sum_final" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="Sum_payed" Nullable="false" Precision="19" />
+          <Property Type="DateTime" Name="Order_date" Nullable="false" />
+          <Property Type="DateTime" Name="Date_send" Nullable="false" />
+          <Property Type="DateTime" Name="Date_arrive" Nullable="true" />
+          <Property Type="String" Name="Delivery" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="usp_count_product_in_category1_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="Product_rest" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_show_today_orders1_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Order_details" Nullable="true" MaxLength="500" />
           <Property Type="String" Name="Order_status" Nullable="false" MaxLength="50" />
@@ -408,6 +568,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategorry">
+      <EntityTypeMapping TypeName="IsTypeOf(ShopAutoModel.ProductCategorry)">
+        <MappingFragment StoreEntitySet="ProductCategorry">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoryExtra" ColumnName="CategoryExtra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="IsTypeOf(ShopAutoModel.Products)">
         <MappingFragment StoreEntitySet="Products">
@@ -422,6 +590,15 @@
           <ScalarProperty Name="Price_sale" ColumnName="Price_sale" />
           <ScalarProperty Name="Color" ColumnName="Color" />
           <ScalarProperty Name="Product_rest" ColumnName="Product_rest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(ShopAutoModel.Users)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

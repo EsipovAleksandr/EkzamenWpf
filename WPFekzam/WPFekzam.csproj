@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7792C86D-8D8F-44EA-B80F-78E513810BE8}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>WPFekzam</RootNamespace>
     <AssemblyName>WPFekzam</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -75,10 +75,20 @@
     <Compile Include="Admin\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AutoModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoModel.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="AutoModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Customers.cs">
       <DependentUpon>AutoModel.tt</DependentUpon>
@@ -90,6 +100,9 @@
       <DependentUpon>AutoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OrdersDetail.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCategorry.cs">
       <DependentUpon>AutoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Products.cs">
@@ -104,7 +117,16 @@
     <Compile Include="Product\ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_count_product_in_category1_Result.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_count_product_in_category_Result.cs">
+      <DependentUpon>AutoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_show_today_orders1_Result.cs">
       <DependentUpon>AutoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_show_today_orders_Result.cs">
@@ -141,16 +163,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AutoModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AutoModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AutoModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AutoModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Emploe\AddEmployeWindow.xaml.cs">
       <DependentUpon>AddEmployeWindow.xaml</DependentUpon>
@@ -243,6 +255,7 @@
       <DependentUpon>AutoModel.edmx</DependentUpon>
       <LastGenOutput>AutoModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resurses\Category.PNG" />
     <Resource Include="Resurses\Mersedes.jpg" />
     <Resource Include="Resurses\Audi.jpg" />
     <Resource Include="Resurses\BMW.jpg" />
