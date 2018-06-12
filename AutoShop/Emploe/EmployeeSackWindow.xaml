@@ -1,0 +1,86 @@
+﻿<Window x:Class="AutoShop.Emploe.EmployeeSackWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"      
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+       Title="EditEmployees" Height="892.318" Width="1212.225" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#FF7E7E7E">
+        <Border Background="#FF5B5B5B">
+            <Grid>
+                <materialDesign:Card Padding="32" Margin="76,10,79,0" Height="140" Foreground="#FF919191" RenderTransformOrigin="0.049,0.517" Background="#FF2196F3">
+                    <materialDesign:Card.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="0.785"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="1.02"/>
+                        </TransformGroup>
+                    </materialDesign:Card.RenderTransform>
+                    <Label Content="Сотрудники" HorizontalContentAlignment="Center" FontSize="48" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="0,-14,0,1"/>
+                </materialDesign:Card>
+                <materialDesign:PackIcon Kind="Backspace"   Height="38" Width="46" MouseDown="PackIcon_MouseDown" Foreground="#FFF73C3C" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,-4,4,0"></materialDesign:PackIcon>
+                <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="0,440,0,0" VerticalAlignment="Top" Width="1204" RenderTransformOrigin="0.16,0.14" Background="#FF5B5B5B">
+                </Border>
+                <materialDesign:PackIcon Kind="ClipboardArrowDown" Height="100" Width="79" Margin="808,440,0,0" Foreground="White" RenderTransformOrigin="0.099,1.481"></materialDesign:PackIcon>
+                <materialDesign:PackIcon Kind="AccountRemove" Height="100" Width="79" Margin="380,440,0,0" Foreground="White" RenderTransformOrigin="0.099,1.481"></materialDesign:PackIcon>
+
+            </Grid>
+        </Border>
+        <ListBox   HorizontalAlignment="Stretch"  Name="listBox" Background="White" Margin="0,158,0,439">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1" Width="auto" HorizontalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock  FontWeight="Light" FontSize="20" Text="{Binding Path=FIO}"/>
+                            <TextBlock Grid.Row="1" FontSize="20" Text="{Binding Path=Post}"/>
+                        </Grid>
+                    </Grid>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Label Content="Уволенные" Margin="514,458,390,0" VerticalAlignment="Top" FontSize="48" HorizontalAlignment="Center" Width="300" Background="#FF5B5B5B" Foreground="#DDFFFFFF" Height="72" FontFamily="Segoe WP Semibold" />
+        <ListBox   HorizontalAlignment="Stretch"  Name="listBox2" Background="White" Margin="0,535,0,61" Foreground="Black">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="1100"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1" Width="auto" HorizontalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock  FontWeight="Light" FontSize="20" Text="{Binding Path=FIO}"/>
+                            <Label Content="Уволен" HorizontalAlignment="Right" HorizontalContentAlignment="Right" FontSize="22" FontFamily="Segoe WP Semibold" Foreground="#FF2196F3"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" FontSize="22" Text="{Binding Path=Date_end}" HorizontalAlignment="Right" Foreground="#FF515151"/>
+
+                        </Grid>
+                    </Grid>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel VerticalAlignment="Bottom" Height="56">
+            <Button  Content="Уволить" FontSize="36" Height="57" Width="500" Background="#FFF73C3C" Click="Button_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

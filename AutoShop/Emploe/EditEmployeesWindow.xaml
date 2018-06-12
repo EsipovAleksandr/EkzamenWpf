@@ -1,0 +1,49 @@
+﻿<Window x:Class="AutoShop.Emploe.EditEmployeesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoShop"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="EditEmployees" Height="780.318" Width="1212.225" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <materialDesign:Card Padding="32" Margin="76,10,79,0" Height="144" Foreground="#FF919191" RenderTransformOrigin="0.049,0.517" Background="#FF2196F3">
+            <Label Content="Личные данные сотрудника" HorizontalContentAlignment="Center" FontSize="48" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="0,-14,0,1"/>
+        </materialDesign:Card>
+        <materialDesign:PackIcon Kind="Backspace"   Height="56" Width="52" MouseDown="PackIcon_MouseDown" Foreground="#FFF73C3C" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,0,4,0"></materialDesign:PackIcon>
+        <Grid  Margin="0,154,0,126">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBox x:Name="tbName" Text="{Binding Path=FIO}" Grid.Row="0" Margin="10,10,0,26" RenderTransformOrigin="0.475,2.364" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" FontSize="36"/>
+            <Label  Content="Должность"   Grid.Row="1"  FontSize="24" RenderTransformOrigin="-0.84,0.608" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbPosition" Text="{Binding Path=Post}" Grid.ColumnSpan="1"  Grid.Row="1" Margin="239,10,10,26" RenderTransformOrigin="0.451,0.526" FontSize="24"/>
+            <Label Content="Начало работы"  Grid.Column="1"  Grid.Row="2"  FontSize="24" RenderTransformOrigin="-0.84,0.608" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="0,0,368,10" Height="113"/>
+            <DatePicker x:Name="dayStart"  Text="{Binding Path=Birthday}" Grid.Column="1" Grid.Row="2" FontSize="24" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="363" Height="113" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
+            <Label Content="Дата рождения"  Grid.Column="1"  Grid.Row="1"  FontSize="24" RenderTransformOrigin="-0.84,0.608" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" VerticalAlignment="Center"/>
+            <DatePicker x:Name="tbbirdDay"  Text="{Binding Path=Date_start}" Grid.Column="1" Grid.Row="1" FontSize="24" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="363" Height="113" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="2"  Content="Паспортные данные" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbPassportData"  Text="{Binding Path= Passport_data}" Grid.Column="0"  Grid.Row="2" Margin="239,10,10,10" RenderTransformOrigin="0.451,0.526" FontSize="24"/>
+            <Label Grid.Column="0" Grid.Row="3"  Content="Номер телефона" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbPhone"  Text="{Binding Path= Phone1}" Grid.Column="0"  Grid.Row="3" Margin="239,10,10,26" RenderTransformOrigin="0.451,0.526" FontSize="24"/>
+            <Label  Grid.Column="2" Grid.Row="3"  Content="Номер телефона" RenderTransformOrigin="-0.84,0.608" FontSize="24"  VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbPhone2"  Text="{Binding Path= Phone2}" Grid.Column="1"  Grid.Row="3" Margin="239,0,10,10" RenderTransformOrigin="0.451,0.526" FontSize="24"/>
+        </Grid>
+        <DockPanel Height="45"  Width="760" Margin="0,0,192,0" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Button x:Name="ButAdd"   Content="Изменить" Height="48"  Width="500" Click="ButAdd_Click" HorizontalContentAlignment="Center" FontSize="20" HorizontalAlignment="Center"/>
+        </DockPanel>
+        <Label HorizontalAlignment="Left" Margin="533,46,0,0" VerticalAlignment="Top">
+
+        </Label>
+
+    </Grid>
+    
+</Window>

@@ -1,0 +1,117 @@
+﻿<Window x:Class="AutoShop.Product.AddProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoShop.Product"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="PdoductAddWindow" WindowStartupLocation="CenterScreen"  Background="#FFE8E8E8" Height="742.106" Width="1173" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+        <Grid Height="1114">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="127*"/>
+                <ColumnDefinition Width="1065*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="White" OpacityMask="#FFF11717" Margin="0,10,0,72" Grid.ColumnSpan="2"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="550" />
+
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="128,0,0,-389" HorizontalAlignment="Left" Width="385" Background="#FFE8E8E8" Grid.ColumnSpan="2">
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="White" RenderTransformOrigin="0.14,0.566" Background="#FF2196F3">
+                        <Label  Content="Наименование товара"   Grid.Row="0" FontSize="24" Margin="0,-14,-16,-39" Foreground="#DDFFFFFF" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <Label  Content="Марка"   Grid.Row="0"  FontSize="24" HorizontalContentAlignment="Center" Margin="0,-12,0,-22"  />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566" Background="#FF2196F3">
+                        <Label  Content="Категория"   Grid.Row="0" FontSize="24" HorizontalContentAlignment="Center" Margin="0,-15,0,-24" Foreground="#DDFFFFFF" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <Label  Content="Артикул"   Grid.Row="0"  FontSize="24" HorizontalContentAlignment="Center" Margin="0,-16,0,-19" RenderTransformOrigin="0.505,0.636" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566" Background="#FF2196F3">
+                        <Label  Content="Каталог номер"   Grid.Row="0"  FontSize="24" Margin="0,-12,0,-22" HorizontalContentAlignment="Center" Foreground="#DDFFFFFF" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <Label  Content="Производитель"   Grid.Row="0"  FontSize="24" Margin="0,-14,0,-18" HorizontalContentAlignment="Center" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF2196F3" RenderTransformOrigin="0.14,0.566" Background="#FF2196F3">
+                        <Label  Content="Начальная цена"   Grid.Row="0"  FontSize="24" Margin="0,-14,0,-18" HorizontalContentAlignment="Center" Foreground="#DDFFFFFF" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <Label  Content="Цена продажы"   Grid.Row="0" FontSize="24" Margin="0,-17,0,-19" HorizontalContentAlignment="Center" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF2196F3" RenderTransformOrigin="0.14,0.566" Background="#FF2196F3">
+                        <Label  Content="Цвет"   Grid.Row="0"  FontSize="24" Margin="0,-14,0,-16" HorizontalContentAlignment="Center" Foreground="#DDFFFFFF" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <Label  Content="Остаток"   Grid.Row="0" FontSize="24" Margin="0,-13,0,-19" HorizontalContentAlignment="Center" />
+                    </materialDesign:Card>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="18,0,108,-401" Grid.Column="1" Background="#FFE8E8E8">
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <TextBox x:Name="tbName"  Grid.Column="0" Grid.Row="1" Margin="0,-18,-21,-21" Background="Transparent" BorderBrush="#89000000" CaretBrush="#89000000" FontSize="20" />
+                    </materialDesign:Card>
+
+                    <ComboBox x:Name="ComboBox1" Height="136" Width="520" VerticalAlignment="Top" Margin="18,0,28,0" HorizontalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBoxItem  x:Name="ComboBoxItem1" Height="140" Margin="-13,0,-15,0" Width="602" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resurses/BMW.jpg"   Width="198" Height="146" />
+                                <TextBlock Width="349" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"><Run Text="BMW"/></TextBlock>
+                            </StackPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem x:Name="ComboBoxItem2" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resurses/Audi.jpg"   Width="198" Height="146" />
+                                <TextBlock Width="349" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"><Run Text="Audi"/></TextBlock>
+                            </StackPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem x:Name="ComboBoxItem3" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resurses/Mersedes.jpg"   Width="198" Height="146" />
+                                <TextBlock Width="349" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"><Run Text="Mersedes"/></TextBlock>
+                            </StackPanel>
+                        </ComboBoxItem>
+                    </ComboBox>
+
+                    <ComboBox Name="ComboBoxCategory" Height="52" VerticalAlignment="Center" Margin="18,0,28,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <TextBox x:Name="tbArt" Grid.Column="3" Grid.Row="1" FontSize="20" Margin="0,-24,0,-21" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <TextBox x:Name="tbCatalogNum" Grid.Column="4" Grid.Row="1" FontSize="20" Margin="0,-20,0,-23" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <TextBox x:Name="tbManufacturer" Grid.Column="5" Grid.Row="1" FontSize="20" Margin="0,-28,0,-19" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <TextBox x:Name="tbPriceFirst" Grid.Column="6" Grid.Row="1" FontSize="18" Margin="0,-37,0,-21" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <TextBox x:Name="tbPriceSale" Grid.Column="7" Grid.Row="1" FontSize="20" Margin="0,-22,0,-21" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <TextBox x:Name="tbColor" Grid.Column="8" Grid.Row="1" FontSize="20" Height="42" VerticalAlignment="Top" Margin="0,-16,0,-17" />
+                    </materialDesign:Card>
+                    <materialDesign:Card Padding="32" Margin="10,10,10,0" Height="83" Foreground="#FF919191" RenderTransformOrigin="0.14,0.566">
+                        <TextBox x:Name="tbProductRest" Grid.Column="9" Grid.Row="1" FontSize="20" Margin="0,-24,0,-18" />
+                    </materialDesign:Card>
+                </StackPanel>
+
+            </Grid>
+
+            <StackPanel VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="52" Width="1152" >
+                <Button FontSize="22" Click="Button_Click" HorizontalAlignment="Center" Width="500" Height="40" Margin="482,0" Background="#FF27D400" BorderBrush="White" >Добавить</Button>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>
