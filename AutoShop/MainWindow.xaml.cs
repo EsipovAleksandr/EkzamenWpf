@@ -8,18 +8,13 @@ using AutoShop.Model;
 
 namespace AutoShop
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         DispatcherTimer timer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
-            this.ResizeMode = ResizeMode.NoResize;
-          
-
+            this.ResizeMode = ResizeMode.NoResize;    
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -32,15 +27,12 @@ namespace AutoShop
                     Window r1 = new AdminWindow();
                     r1.Show();
                     this.Close();
-                    Console.WriteLine("1");
                     Console.WriteLine(UsernameLabel.Text+" "+ item.Login);
                 }
                 else
                 {
                     Console.WriteLine("текст :"+"   "+UsernameLabel.Text + "     " +"бд:"+"    "+item.Login);           
                 }
-
-
             }
         }
         //    if (UsernameLabel.Text == "admin" && PasswordLabel.Password == "admin")
